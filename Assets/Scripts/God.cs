@@ -16,11 +16,12 @@ public class God : MonoBehaviour {
             return count;
         }
     }
-    public Slider slider;
+    public Slider energySlider;
+    public Text followersText;
     public float energy
     {
-        get { return slider.value; }
-        set { slider.value = value; }
+        get { return energySlider.value; }
+        set { energySlider.value = value; }
     }
 
 	
@@ -32,5 +33,6 @@ public class God : MonoBehaviour {
 	void Update () {
         //regain energy depending on number of followers
         energy += followers * energyPerFollowerPerSecond * Time.deltaTime;
+        followersText.text = followers.ToString();
     }
 }
