@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShrineResource : MonoBehaviour {
+public class ShrineUpgrade : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

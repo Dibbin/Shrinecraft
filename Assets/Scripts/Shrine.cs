@@ -6,7 +6,17 @@ public class Shrine : MonoBehaviour {
     public Level level = null;
     public God god = null;
     public int followers = 0;
-    public ShrineResource[] resources = new ShrineResource[8];
+    public int maxFollowers
+    {
+        get
+        {
+            return (int)(Mathf.Min(food, water) * followersPerSupply);
+        }
+    }
+    public float followersPerSupply = 2.0f;
+    public float food = 0.0f;
+    public float water = 0.0f;
+    //need to handle maxfood, maxwater (resources in general)
 
     //these are only used internally
     protected float nextEvent = 0.0f;
