@@ -4,7 +4,7 @@ public class Shrine : MonoBehaviour {
     //set these after construction
     public Level level = null;
     public God god = null;
-    public int followers = 0;
+    public int followers = 1;
     public int maxFollowers
     {
         get
@@ -17,7 +17,7 @@ public class Shrine : MonoBehaviour {
     public float water = 0.0f;
     //need to handle maxfood, maxwater (resources in general)
 
-    private static float reproductionRate = 10.0f;
+    public float reproductionRate = 5.0f;
 
     void ReproduceFollowers()
     {
