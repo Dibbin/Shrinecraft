@@ -13,8 +13,8 @@ public class Shrine : MonoBehaviour {
         }
     }
     public float followersPerSupply = 2.0f;
-    public float food = 0.0f;
-    public float water = 0.0f;
+    public float food = 4.0f;
+    public float water = 4.0f;
     //need to handle maxfood, maxwater (resources in general)
 
     public float reproductionRate = 5.0f;
