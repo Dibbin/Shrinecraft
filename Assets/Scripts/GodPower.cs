@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class GodPower : MonoBehaviour {
+public interface GodPower {
 
-    public int cost;
+    bool canUsePowerOnMap();
+    bool canUsePowerOnShrine();
 
-	void Start () {
-	
-	}
-	
-	
-	void Update () {
-	
-	}
+    void usePowerOnMap();
+    void usePowerOnShrine(Shrine shrine);
 }
