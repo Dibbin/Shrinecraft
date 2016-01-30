@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 public class GodPowerFire : GodPower {
 
 
@@ -30,6 +33,7 @@ public class GodPowerFire : GodPower {
     public void usePowerOnShrine(Shrine s)
     {
         Debug.Log("Using fire power on Shrine!");
+<<<<<<< HEAD
         shrineLoc = s.transform.position;
         curShrine = s;
         burner();
@@ -55,4 +59,7 @@ public class GodPowerFire : GodPower {
 
     }
 
+=======
+    }
+>>>>>>> origin/master
 }
