@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Shrine : MonoBehaviour {
     //set these after construction
@@ -19,6 +20,8 @@ public class Shrine : MonoBehaviour {
 
     public float reproductionRate = 5.0f;
 
+    private PlayerInputManager playerInput;
+
     void ReproduceFollowers()
     {
         if(followers < maxFollowers) followers++;
@@ -29,6 +32,7 @@ public class Shrine : MonoBehaviour {
     void Start ()
     {
         Invoke("ReproduceFollowers", reproductionRate);
+        playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputManager>();
     }
 	
     void Update () {
@@ -38,5 +42,11 @@ public class Shrine : MonoBehaviour {
     //let the level know this shrine is gone
     void OnDestroy() {
         level.RemoveShrine(this);
+    }
+
+    void OnMouseDown()
+    {
+        Debug.Log("Shrine clicked!");
+        playerInput.handleShrineClick(this);
     }
 }

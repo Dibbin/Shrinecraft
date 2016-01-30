@@ -24,7 +24,6 @@ public class God : MonoBehaviour {
         set { energySlider.value = value; }
     }
 
-	
 	void Start () {
 	
 	}
