@@ -24,12 +24,12 @@ public class God : MonoBehaviour {
         set { slider.value = value; }
     }
 
-	// Use this for initialization
+	
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
         //regain energy depending on number of followers
         energy += followers * energyPerFollowerPerSecond * Time.deltaTime;

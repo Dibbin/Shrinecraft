@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GodPower : MonoBehaviour {
 
-	// Use this for initialization
+    public int cost;
+
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 	
 	}
