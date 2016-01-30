@@ -5,6 +5,9 @@ public class Shrine : MonoBehaviour {
     //set these after construction
     public Level level = null;
     public God god = null;
+    public int followers = 0;
+    public ShrineResource[] resources = new ShrineResource[8];
+
     //these are only used internally
     protected float nextEvent = 0.0f;
     protected List<ShrineEvent> events = new List<ShrineEvent>();
