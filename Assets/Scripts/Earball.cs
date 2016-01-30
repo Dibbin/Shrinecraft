@@ -8,6 +8,6 @@ public class Earball : MonoBehaviour {
         CursorCaster.CursorCastHit hit = CursorCaster.CastCursor();
         if(hit != null) gameObject.transform.position = hit.worldPosition;
         gameObject.transform.rotation = Camera.main.gameObject.transform.rotation;
-        gameObject.transform.Rotate(new Vector3(0.0f, 180.0f, 0.0f));
+        //gameObject.transform.Rotate(new Vector3(0.0f, 180.0f, 0.0f));
 	}
 }
