@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 public class GodPowerFire : GodPower {
 
 
@@ -13,7 +9,7 @@ public class GodPowerFire : GodPower {
     Shrine curShrine;
     public float delay;
     Vector3 shrineLoc;
-  public  int cycles = 3;
+    public  int cycles = 3;
 
     public bool canUsePowerOnMap()
     {
@@ -33,7 +29,6 @@ public class GodPowerFire : GodPower {
     public void usePowerOnShrine(Shrine s)
     {
         Debug.Log("Using fire power on Shrine!");
-<<<<<<< HEAD
         shrineLoc = s.transform.position;
         curShrine = s;
         burner();
@@ -58,8 +53,4 @@ public class GodPowerFire : GodPower {
 
 
     }
-
-=======
-    }
->>>>>>> origin/master
 }
