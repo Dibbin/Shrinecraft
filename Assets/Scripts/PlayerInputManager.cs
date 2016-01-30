@@ -52,7 +52,11 @@ public class PlayerInputManager : MonoBehaviour {
 
     private void clearCurrentPowerSelection()
     {
-        currentPower.clearHighlight();
-        currentPower = null;
+        if (currentPower)
+        {
+
+            currentPower.clearHighlight();
+            currentPower = null;
+        }
     }
 }
