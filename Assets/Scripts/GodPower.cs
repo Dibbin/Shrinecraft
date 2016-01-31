@@ -8,4 +8,6 @@ public interface GodPower {
 
     void usePowerOnMap();
     void usePowerOnShrine(Shrine shrine);
+
+    float getEnergyCost();
 }

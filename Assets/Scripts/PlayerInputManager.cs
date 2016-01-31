@@ -5,6 +5,7 @@ public class PlayerInputManager : MonoBehaviour {
 
 
     private GodPowerButton currentPower = null;
+    private God playerGod;
 
     private Dictionary<string, GodPower> godPowerDictionary;
 
@@ -12,8 +13,11 @@ public class PlayerInputManager : MonoBehaviour {
     {
         godPowerDictionary = new Dictionary<string, GodPower>()
         {
-            { "Fire", new GodPowerFire()}
+            { "Fire", new GodPowerFire()},
+            { "SummonShrine", new GodPowerSummonShrine()}
         };
+
+        playerGod = GameObject.Find("Player1").GetComponent<God>();
     }
 
 
@@ -25,15 +29,25 @@ public class PlayerInputManager : MonoBehaviour {
             {
                 currentPower.clearHighlight();
             }
-            currentPower = nextPower;
-            nextPower.highlight();
+
+
+            GodPower thePower = godPowerDictionary[nextPower.buttonId];
+            var powerCost = thePower.getEnergyCost();
+
+            if (playerGod.energy > powerCost) { 
+                currentPower = nextPower;
+                nextPower.highlight();
+            }
         }
     }
 
     public void handleTerrainClick()
     {
         if (currentPower && godPowerDictionary[currentPower.buttonId].canUsePowerOnMap()){
-            godPowerDictionary[currentPower.buttonId].usePowerOnMap();
+            GodPower thePower = godPowerDictionary[currentPower.buttonId];
+            thePower.usePowerOnMap();
+            playerGod.energy -= thePower.getEnergyCost();
+            
         }
 
         clearCurrentPowerSelection();
@@ -44,7 +58,9 @@ public class PlayerInputManager : MonoBehaviour {
 
         if (currentPower && godPowerDictionary[currentPower.buttonId].canUsePowerOnShrine())
         {
-            godPowerDictionary[currentPower.buttonId].usePowerOnShrine(shrine);
+            GodPower thePower = godPowerDictionary[currentPower.buttonId];
+            thePower.usePowerOnShrine(shrine);
+            playerGod.energy -= thePower.getEnergyCost();
         }
         
         clearCurrentPowerSelection();
@@ -59,4 +75,5 @@ public class PlayerInputManager : MonoBehaviour {
             currentPower = null;
         }
     }
+    
 }

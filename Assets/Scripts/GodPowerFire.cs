@@ -11,7 +11,12 @@ public class GodPowerFire : MonoBehaviour, GodPower
     public float delay;
     Vector3 shrineLoc;
     public  int cycles = 3;
+    public float energyCost = 30;
 
+    public float getEnergyCost()
+    {
+        return energyCost;
+    }
     public bool canUsePowerOnMap()
     {
         return false;
