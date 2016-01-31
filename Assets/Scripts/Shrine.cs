@@ -54,20 +54,19 @@ public class Shrine : MonoBehaviour {
         if (followers < 0)
         {
             Instantiate(ruins, transform.position, Quaternion.identity);
-            OnDestroy();
+            followers = 0;
+            Destroy(gameObject);
         }
     }
 
     //let the level know this shrine is gone
     void OnDestroy() {
         level.RemoveShrine(this);
-        Destroy(self);
     }
-
 
     int cycles = 5;
     float delay = 2.0f;
-    public void burner()   //controls the killing when fire attack is used. 
+    public void burner()   //controls the killing when fire attack is used
     {
        
         if (isBurning == false)
