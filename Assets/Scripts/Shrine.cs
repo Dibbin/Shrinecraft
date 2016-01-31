@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Shrine : MonoBehaviour {
     //set these after construction
-    public Level level = null;
+    private Level level;
     public God god = null;
     public int followers = 1;
     public ParticleSystem theFire;
@@ -34,6 +34,7 @@ public class Shrine : MonoBehaviour {
 
     void Start ()
     {
+        level = GameObject.Find("LevelManager").GetComponent<Level>();
         Invoke("ReproduceFollowers", reproductionRate);
         playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputManager>();
     }

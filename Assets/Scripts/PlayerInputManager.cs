@@ -6,7 +6,7 @@ public class PlayerInputManager : MonoBehaviour {
 
     private GodPowerButton currentPower = null;
     private God playerGod;
-
+    private GameObject terrain;
     private Dictionary<string, GodPower> godPowerDictionary;
 
     public void Start()
@@ -18,6 +18,7 @@ public class PlayerInputManager : MonoBehaviour {
         };
 
         playerGod = GameObject.Find("Player1").GetComponent<God>();
+        terrain = GameObject.Find("pPlane3");
     }
 
 
@@ -44,13 +45,18 @@ public class PlayerInputManager : MonoBehaviour {
     public void handleTerrainClick()
     {
         if (currentPower && godPowerDictionary[currentPower.buttonId].canUsePowerOnMap()){
-            GodPower thePower = godPowerDictionary[currentPower.buttonId];
-            thePower.usePowerOnMap();
-            playerGod.energy -= thePower.getEnergyCost();
-            
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (terrain.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
+            {
+                GodPower thePower = godPowerDictionary[currentPower.buttonId];
+                thePower.usePowerOnMap(hit.point, playerGod);
+                playerGod.energy -= thePower.getEnergyCost();
+
+                clearCurrentPowerSelection();
+            }
         }
 
-        clearCurrentPowerSelection();
     }
 
     public void handleShrineClick(Shrine shrine)
@@ -59,11 +65,11 @@ public class PlayerInputManager : MonoBehaviour {
         if (currentPower && godPowerDictionary[currentPower.buttonId].canUsePowerOnShrine())
         {
             GodPower thePower = godPowerDictionary[currentPower.buttonId];
-            thePower.usePowerOnShrine(shrine);
+            thePower.usePowerOnShrine(shrine, playerGod);
             playerGod.energy -= thePower.getEnergyCost();
+            clearCurrentPowerSelection();
         }
         
-        clearCurrentPowerSelection();
     }
 
     private void clearCurrentPowerSelection()

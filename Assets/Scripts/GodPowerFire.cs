@@ -27,12 +27,12 @@ public class GodPowerFire :  MonoBehaviour, GodPower
         return true;
     }
 
-    public void usePowerOnMap()
+    public void usePowerOnMap(Vector3 point, God godUsingPower)
     {
         //do nothing
     }
 
-    public void usePowerOnShrine(Shrine s)
+    public void usePowerOnShrine(Shrine s, God godUsingPower)
     {
         Debug.Log("Using fire power on Shrine!");
         s.burner();
