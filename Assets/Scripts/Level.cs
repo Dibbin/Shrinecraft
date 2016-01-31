@@ -33,9 +33,14 @@ public class Level : MonoBehaviour {
         test = (GetShrinesByGod(gods[0]));
 
         if (test.Count <= 0){
-       //you lose
+            //you lose
+            print("loser");
         }
-        test = (GetShrinesByGod(gods[0]));
-
+        test = (GetShrinesByGod(gods[1]));
+        if (test.Count <= 0)
+        {
+            //you win
+            print("winner");
+        }
     }
 }
