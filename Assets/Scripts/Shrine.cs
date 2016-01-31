@@ -78,9 +78,7 @@ public class Shrine : MonoBehaviour {
 
         }
         theFire.Play();
-        int totalPop = this.followers;
-        totalPop -= 2;
-        this.followers = totalPop;
+        Kill(2);
         isBurning = true;
         if (cycles != 0)
         {
@@ -93,7 +91,7 @@ public class Shrine : MonoBehaviour {
         }
     }
 
-        void OnMouseDown()
+    void OnMouseDown()
     {
         Debug.Log("Shrine clicked!");
         playerInput.handleShrineClick(this);
