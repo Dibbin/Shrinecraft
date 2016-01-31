@@ -105,7 +105,6 @@ public class GodController : MonoBehaviour {
                 if (enemy.energy >= thePower.getEnergyCost())
                 {
                     thePower.usePowerOnShrine(shrines[sel], enemy);
-                    shrines[sel].burner();
                     enemy.energy -= thePower.getEnergyCost();
                 }
                 break;
