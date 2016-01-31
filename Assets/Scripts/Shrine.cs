@@ -9,6 +9,7 @@ public class Shrine : MonoBehaviour {
     public ParticleSystem theFire;
     public GameObject self;
     public GameObject ruins;
+    public AudioSource screamer;
     public bool isBurning = false;
 
     public int maxFollowers
