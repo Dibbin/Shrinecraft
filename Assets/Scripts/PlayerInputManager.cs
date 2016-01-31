@@ -6,7 +6,7 @@ public class PlayerInputManager : MonoBehaviour {
 
     private GodPowerButton currentPower = null;
     private God playerGod;
-    private GameObject terrain;
+    public GameObject terrain;
     private Dictionary<string, GodPower> godPowerDictionary;
 
     public void Start()
@@ -18,7 +18,7 @@ public class PlayerInputManager : MonoBehaviour {
         };
 
         playerGod = GameObject.Find("Player1").GetComponent<God>();
-        terrain = GameObject.Find("landscape_MAP");
+        //terrain = GameObject.Find("landscape_MAP");
     }
 
 

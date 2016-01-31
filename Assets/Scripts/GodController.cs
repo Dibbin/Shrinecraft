@@ -8,6 +8,7 @@ public class GodController : MonoBehaviour {
     float energy;
     int choice;
     List<Shrine> shrines;
+    public GameObject terrain;
     int followers;
     Vector3 randLoc;
     public Level level;
@@ -56,8 +57,18 @@ public class GodController : MonoBehaviour {
                 case 1:
                     thePower = godPowerDictionary["SummonShrine"];
                     thePower.usePowerOnMap(randLoc, enemy);
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (terrain.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
+                {
+                  
+                    thePower.usePowerOnMap(hit.point, playerGod);
+                    enemy.energy -= thePower.getEnergyCost();
 
-                    break;
+                    
+                }
+
+                break;
                 default:
 
                     break;
