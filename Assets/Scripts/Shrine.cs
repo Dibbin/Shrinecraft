@@ -10,6 +10,7 @@ public class Shrine : MonoBehaviour {
     public GameObject self;
     public GameObject ruins;
     public AudioSource screamer;
+    public ParticleSystem theBlood;
     public bool isBurning = false;
 
     public int maxFollowers
@@ -40,6 +41,13 @@ public class Shrine : MonoBehaviour {
         level = GameObject.Find("LevelManager").GetComponent<Level>();
         Invoke("ReproduceFollowers", reproductionRate);
         playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputManager>();
+    }
+
+    public void Kill(int n)
+    {
+        followers -= n;
+        if (screamer) screamer.Play();
+        if (theBlood) theBlood.Play();
     }
 	
     void Update () {

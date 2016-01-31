@@ -25,8 +25,7 @@ public class GodPowerSacrifice : MonoBehaviour, GodPower {
 
     public void usePowerOnShrine(Shrine s, God user)
     {
-        s.followers--;
+        s.Kill(1);
         user.energy += 5;
-        if(s.screamer) s.screamer.Play();
     }
 }
