@@ -7,6 +7,8 @@ public class Shrine : MonoBehaviour {
     public God god = null;
     public int followers = 1;
     public ParticleSystem theFire;
+    public GameObject self;
+    public GameObject ruins;
     public bool isBurning = false;
 
     public int maxFollowers
@@ -40,13 +42,17 @@ public class Shrine : MonoBehaviour {
     }
 	
     void Update () {
-
+        if (followers < 0) OnDestroy();
     }
 
     //let the level know this shrine is gone
     void OnDestroy() {
         level.RemoveShrine(this);
+        Instantiate(ruins, transform.position, Quaternion.identity);
+        Destroy(self);
     }
+
+
     int cycles = 5;
     float delay = 2.0f;
     public void burner()   //controls the killing when fire attack is used. 
