@@ -4,17 +4,20 @@ using System.Collections.Generic;
 
 public class GodController : MonoBehaviour {
 
-    public God enemy;
+    private God enemy;
     float energy;
     int choice;
     List<Shrine> shrines;
-    public GameObject terrain;
+    private GameObject terrain;
     int followers;
     Vector3 randLoc;
-    public Level level;
+    private Level level;
     private Dictionary<string, GodPower> godPowerDictionary;
     private God playerGod;
     void Start () {
+        enemy = gameObject.GetComponent<God>();
+        level = GameObject.Find("LevelManager").GetComponent<Level>();
+        terrain = GameObject.Find("landscape_MAP");
         playerGod = GameObject.Find("Player1").GetComponent<God>();
         energy = enemy.energy;
         followers = enemy.followers;
