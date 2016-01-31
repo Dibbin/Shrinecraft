@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class TerrainClick : MonoBehaviour {
-
-    public God playerGod;
+    
     private PlayerInputManager playerInput;
 
     void Start()

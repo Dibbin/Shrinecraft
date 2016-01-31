@@ -18,7 +18,7 @@ public class PlayerInputManager : MonoBehaviour {
         };
 
         playerGod = GameObject.Find("Player1").GetComponent<God>();
-        terrain = GameObject.Find("pPlane3");
+        terrain = GameObject.Find("landscape_MAP");
     }
 
 
