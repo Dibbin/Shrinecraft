@@ -14,7 +14,8 @@ public class PlayerInputManager : MonoBehaviour {
         godPowerDictionary = new Dictionary<string, GodPower>()
         {
             { "Fire", new GodPowerFire()},
-            { "SummonShrine", new GodPowerSummonShrine()}
+            { "SummonShrine", new GodPowerSummonShrine()},
+            {"Sacrifice",new GodPowerSacrifice()  }
         };
 
         playerGod = GameObject.Find("Player1").GetComponent<God>();
