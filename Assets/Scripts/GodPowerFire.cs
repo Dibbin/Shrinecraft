@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GodPowerFire : GodPower {
+public class GodPowerFire : MonoBehaviour, GodPower
+{
 
 
     public GameObject fire;
@@ -39,7 +40,7 @@ public class GodPowerFire : GodPower {
         if (isBurning == false)
         {
            
-            Instantiate(fire, shrineLoc, Quaternion.identity);
+            Object.Instantiate(fire, shrineLoc, Quaternion.identity);
             
         }
        int totalPop = curShrine.followers;
@@ -48,7 +49,7 @@ public class GodPowerFire : GodPower {
         isBurning = true;
         if (cycles != 0)
         {
-            Invoke("burner", delay);
+            this.Invoke("burner", delay);
         }
 
 
