@@ -101,7 +101,7 @@ public class GodController : MonoBehaviour {
                 print("kill");
                 shrines = (level.GetShrinesByGod(enemy));
                 size = shrines.Count;
-                sel = Random.Range(0, size);
+                sel = Random.Range(0, size-1);
                 if (enemy.energy >= thePower.getEnergyCost())
                 {
                     thePower.usePowerOnShrine(shrines[sel], enemy);
