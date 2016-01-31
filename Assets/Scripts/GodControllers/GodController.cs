@@ -25,7 +25,8 @@ public class GodController : MonoBehaviour {
         godPowerDictionary = new Dictionary<string, GodPower>()
         {
             { "Fire", new GodPowerFire()},
-            { "SummonShrine", new GodPowerSummonShrine()}
+            { "SummonShrine", new GodPowerSummonShrine()},
+            {"Sacrifice",new GodPowerSacrifice()  }
 
         };
 
@@ -34,8 +35,8 @@ public class GodController : MonoBehaviour {
     }
 	void setRandom()
     {
-        choice =  Random.Range(0,2);//set to length of dictionary
-        Invoke("setRandom", 3.0f);
+        choice =  Random.Range(0,3);//set to length of dictionary
+        Invoke("setRandom", 5.0f);
     }
     void runPower(int i)
     {
@@ -79,6 +80,20 @@ public class GodController : MonoBehaviour {
                 }
 
                 break;
+
+            case 2:
+                thePower = godPowerDictionary["Sacrifice"];
+                print("kill");
+                shrines = (level.GetShrinesByGod(enemy));
+                size = shrines.Count;
+                sel = Random.Range(0, size);
+                if (enemy.energy >= thePower.getEnergyCost())
+                {
+                    thePower.usePowerOnShrine(shrines[sel], enemy);
+                    shrines[sel].burner();
+                    enemy.energy -= thePower.getEnergyCost();
+                }
+                break;
                 default:
 
                     break;
@@ -97,8 +112,8 @@ public class GodController : MonoBehaviour {
 	
 	void Update () {
 
-        choice = Random.Range(0, 2);//set to length of dictionary
-
+       // choice = Random.Range(0, 2);//set to length of dictionary
+       //didnt want it to change so frequnetly, otherwise he will use the cheaper option more frequently
 
 
     }
