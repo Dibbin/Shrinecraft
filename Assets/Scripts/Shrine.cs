@@ -54,7 +54,8 @@ public class Shrine : MonoBehaviour {
         if (followers < 0)
         {
             Instantiate(ruins, transform.position, Quaternion.identity);
-            OnDestroy();
+            followers = 0;
+            Destroy(this);
         }
     }
 
