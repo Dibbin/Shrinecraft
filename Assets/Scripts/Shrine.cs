@@ -55,14 +55,13 @@ public class Shrine : MonoBehaviour {
         {
             Instantiate(ruins, transform.position, Quaternion.identity);
             followers = 0;
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
     //let the level know this shrine is gone
     void OnDestroy() {
         level.RemoveShrine(this);
-        Destroy(self);
     }
 
 
