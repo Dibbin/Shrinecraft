@@ -65,8 +65,8 @@ public class Shrine : MonoBehaviour {
     }
 
 
-    int cycles = 5;
-    float delay = 2.0f;
+    public int cycles = 5;
+    public float delay = 2.0f;
     public void burner()   //controls the killing when fire attack is used. 
     {
        

@@ -35,6 +35,8 @@ public class GodPowerFire :  MonoBehaviour, GodPower
     public void usePowerOnShrine(Shrine s, God godUsingPower)
     {
         Debug.Log("Using fire power on Shrine!");
+        s.cycles = 5;
+        s.delay = 2.0f;
         s.burner();
         shrineLoc = s.transform.position;
         curShrine = s;
