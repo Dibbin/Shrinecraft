@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Shrine : MonoBehaviour {
     //set these after construction
@@ -9,7 +10,7 @@ public class Shrine : MonoBehaviour {
     public ParticleSystem theFire;
     public GameObject self;
     public GameObject ruins;
-    public AudioSource screamer;
+    public AudioSource[] screamers;
     public ParticleSystem theBlood;
     public bool isBurning = false;
     public ShrineUpgrade su = null;
@@ -47,7 +48,10 @@ public class Shrine : MonoBehaviour {
     public void Kill(int n)
     {
         followers -= n;
-        if (screamer) screamer.Play();
+        if(screamers.GetLength(0) > 0)
+        {
+            screamers[(int)Random.Range(0.0f, screamers.GetLength(0) * 1.0f)].Play();
+        }
         if (theBlood) theBlood.Play();
     }
 	
