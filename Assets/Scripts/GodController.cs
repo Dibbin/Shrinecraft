@@ -58,10 +58,10 @@ public class GodController : MonoBehaviour {
                     thePower = godPowerDictionary["SummonShrine"];
                    
                 
-                float x = Random.Range(182,1366);
+                float x = Random.Range(867,2087);
                 float y = Random.Range(0,500);
-                float z = Random.Range(-1191, 70);
-                randLoc = new Vector3(x, -373, z);
+                float z = Random.Range(-2968,-215);
+                randLoc = new Vector3(x, -744, z);
                
                 print(x);
                 if (enemy.energy >= thePower.getEnergyCost())
