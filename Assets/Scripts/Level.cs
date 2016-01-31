@@ -41,7 +41,7 @@ public class Level : MonoBehaviour {
         if (test.Count <= 0){
             //you lose
             print("loser");
-            isOver = true;
+            HandleLose();
         }
         test = (GetShrinesByGod(gods[1]));
         if (test.Count <= 0)
@@ -52,15 +52,26 @@ public class Level : MonoBehaviour {
         }
     }
 
-    public void HandleWin()
+    private void HandleWin()
     {
         isOver = true;
         Invoke("ChangeToWinScene", 3.0f);
+    }
+
+    private void HandleLose()
+    {
+        isOver = true;
+        Invoke("ChangeToLoseScene", 3.0f);
     }
 
     public void ChangeToWinScene()
     {
         print("loading scene WinScene");
         SceneManager.LoadScene("WinScene");
+    }
+    public void ChangeToLoseScene()
+    {
+        print("loading scene LoseScene");
+        SceneManager.LoadScene("LoseScene");
     }
 }
