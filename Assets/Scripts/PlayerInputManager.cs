@@ -15,7 +15,9 @@ public class PlayerInputManager : MonoBehaviour {
         {
             { "Fire", new GodPowerFire()},
             { "SummonShrine", new GodPowerSummonShrine()},
-            {"Sacrifice",new GodPowerSacrifice()  }
+            {"Sacrifice",new GodPowerSacrifice()  },
+            {"Rain",new GodPowerRain()  }
+
         };
 
         playerGod = GameObject.Find("Player1").GetComponent<God>();
