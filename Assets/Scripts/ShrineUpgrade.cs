@@ -7,6 +7,8 @@ public class ShrineUpgrade : MonoBehaviour {
     public Transform point2;
     public GameObject bldg1;
     public GameObject bldg2;
+    private GameObject copy1 = null;
+    private GameObject copy2 = null;
 
     bool iscreated1 = false;
     bool iscreated2 = false;
@@ -24,24 +26,22 @@ public class ShrineUpgrade : MonoBehaviour {
     {
         if (parent.followers > 5 && iscreated1 == false)
         {
-            Instantiate(bldg1, point1.transform.position, Quaternion.Euler(0, 90, 0));
+            copy1 = Instantiate(bldg1, point1.transform.position, Quaternion.Euler(0, 90, 0)) as GameObject;
 
             iscreated1 = true;
         }
         if (parent.followers > 7 && iscreated2 == false)
         {
-            Instantiate(bldg2, point2.transform.position, Quaternion.Euler(0, 90, 0));
+            copy2 = Instantiate(bldg2, point2.transform.position, Quaternion.Euler(0, 90, 0)) as GameObject;
             iscreated2 = true;
         }
-        if (parent.followers < 0)
-        {
-            DestroyImmediate(bldg1);
-            DestroyImmediate(bldg2);
-            //Destroy(bldg1);
-            //Destroy(bldg2);
-            Destroy(this);
 
-        }
+    }
 
+    void OnDestroy()
+    {
+
+        if (copy1) Destroy(copy1);
+        if (copy2) Destroy(copy2);
     }
 }

@@ -12,6 +12,7 @@ public class Shrine : MonoBehaviour {
     public AudioSource screamer;
     public ParticleSystem theBlood;
     public bool isBurning = false;
+    public ShrineUpgrade su = null;
 
     public int maxFollowers
     {
@@ -62,6 +63,7 @@ public class Shrine : MonoBehaviour {
     //let the level know this shrine is gone
     void OnDestroy() {
         level.RemoveShrine(this);
+        Destroy(su);
     }
 
 
