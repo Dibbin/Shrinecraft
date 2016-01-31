@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class GodPowerSacrifice : MonoBehaviour, GodPower {
+public class GodPowerSacrifice : GodPower {
     public bool canUsePowerOnMap()
     {
         return false;

@@ -18,28 +18,30 @@ public class ShrineUpgrade : MonoBehaviour {
 
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (parent.followers > 5 && iscreated1==false)
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (parent.followers > 5 && iscreated1 == false)
         {
             Instantiate(bldg1, point1.transform.position, Quaternion.Euler(0, 90, 0));
-            
+
             iscreated1 = true;
         }
         if (parent.followers > 7 && iscreated2 == false)
         {
-            Instantiate(bldg2, point2.transform.position, Quaternion.Euler(0,90,0));
+            Instantiate(bldg2, point2.transform.position, Quaternion.Euler(0, 90, 0));
             iscreated2 = true;
         }
-        if (parent.followers<0)
+        if (parent.followers < 0)
         {
             DestroyImmediate(bldg1);
             DestroyImmediate(bldg2);
-            //Destroy(this);
-        }
+            //Destroy(bldg1);
+            //Destroy(bldg2);
+            Destroy(this);
 
         }
-   
 
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GodPowerFire :  MonoBehaviour, GodPower
+public class GodPowerFire :  GodPower
 {
 
 
