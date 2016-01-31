@@ -7,8 +7,7 @@ public class GodPowerSummonShrine : GodPower
 {
 
     public float energyCost = 20;
-
-    private GameObject terrain = GameObject.Find("pPlane3");
+    
     private Level level = GameObject.Find("LevelManager").GetComponent<Level>();
     private GameObject variableForPrefab = Resources.Load("prefabs/shrine") as GameObject;
 
