@@ -27,5 +27,6 @@ public class GodPowerSacrifice : MonoBehaviour, GodPower {
     {
         s.followers--;
         user.energy += 5;
+        if(s.screamer) s.screamer.Play();
     }
 }
