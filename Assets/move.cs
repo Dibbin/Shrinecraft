@@ -14,7 +14,7 @@ public class move : MonoBehaviour {
         moveDirection = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal")*-1);
         moveDirection = transform.TransformDirection(moveDirection);
        
-        moveDirection *= 100;
+        moveDirection *= 400;
         controller.Move(moveDirection * Time.deltaTime);
     }
 }

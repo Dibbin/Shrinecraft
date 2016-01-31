@@ -34,9 +34,9 @@ public class ShrineUpgrade : MonoBehaviour {
         }
         if (parent.followers<0)
         {
-            Destroy(bldg1);
-            Destroy(bldg2);
-            Destroy(this);
+            DestroyImmediate(bldg1);
+            DestroyImmediate(bldg2);
+            //Destroy(this);
         }
 
         }
