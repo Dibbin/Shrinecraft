@@ -48,7 +48,7 @@ public class GodController : MonoBehaviour {
                    
                     shrines = (level.GetShrinesByGod(playerGod));
                     int size = shrines.Count;
-                    int sel = Random.Range(0, size);
+                    int sel = Random.Range(0, size-1);
                 if (enemy.energy >= thePower.getEnergyCost()) 
                 {
                     thePower.usePowerOnShrine(shrines[sel], enemy);
@@ -59,23 +59,38 @@ public class GodController : MonoBehaviour {
 
                 case 1:
                     thePower = godPowerDictionary["SummonShrine"];
-                   
-                
-                float x = Random.Range(867,2087);
-                float y = Random.Range(0,500);
-                float z = Random.Range(-2968,-215);
-                randLoc = new Vector3(x, -744, z);
+
+
                
-                print(x);
                 if (enemy.energy >= thePower.getEnergyCost())
                 {
-                    
-                   
-                    thePower.usePowerOnMap(randLoc, enemy);
-                     enemy.energy -= thePower.getEnergyCost();
 
 
-                    
+                    print("trying to place shrine on map CPU");
+
+                    var locationFound = false;
+
+                    RaycastHit hit;
+                    Ray ray;
+                    int count = 0;
+                    while (!locationFound && count++ < 20)
+                    {
+                        Vector3 fakeMousePoint = new Vector3(Random.Range(10, Screen.width - 10), Random.Range(10, Screen.height - 10), 0);
+                        
+
+                        ray = Camera.main.ScreenPointToRay(fakeMousePoint);
+                        if (terrain.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
+                        {
+                            thePower.usePowerOnMap(hit.point, enemy);
+                            enemy.energy -= thePower.getEnergyCost();
+                            print("placing shrine on map CPU");
+                            locationFound = true;
+                            break;
+                        }
+                    }
+
+
+
                 }
 
                 break;
