@@ -31,8 +31,8 @@ public class GodController : MonoBehaviour {
     }
 	void setRandom()
     {
-       // choice =  Random.Range(0,2);//set to length of dictionary
-       // Invoke("setRandom", 2.0f);
+        choice =  Random.Range(0,2);//set to length of dictionary
+        Invoke("setRandom", 3.0f);
     }
     void runPower(int i)
     {
@@ -67,10 +67,9 @@ public class GodController : MonoBehaviour {
                 if (enemy.energy >= thePower.getEnergyCost())
                 {
                     
-                    Vector3 place = new Vector3(x, -438, z);
+                   
                     thePower.usePowerOnMap(randLoc, enemy);
-                    
-                        enemy.energy -= thePower.getEnergyCost();
+                     enemy.energy -= thePower.getEnergyCost();
 
 
                     
