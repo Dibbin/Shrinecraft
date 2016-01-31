@@ -11,6 +11,7 @@ public class Shrine : MonoBehaviour {
     public GameObject self;
     public GameObject ruins;
     public AudioSource[] screamers;
+    public AudioSource firesound;
     public ParticleSystem theBlood;
     public bool isBurning = false;
     public ShrineUpgrade su = null;
@@ -79,11 +80,12 @@ public class Shrine : MonoBehaviour {
         if (isBurning == false)
         {
 
-           theFire.Stop();
-           
+            theFire.Stop();
+            firesound.Stop();
 
         }
         theFire.Play();
+        firesound.Play();
         Kill(2);
         isBurning = true;
         if (cycles != 0)
@@ -94,6 +96,8 @@ public class Shrine : MonoBehaviour {
        else {
            
             isBurning = false;
+            theFire.Stop();
+            firesound.Stop();
         }
     }
 
