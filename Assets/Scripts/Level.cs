@@ -27,14 +27,15 @@ public class Level : MonoBehaviour {
         }
         return filtered;
     }
-
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
-	// Update is called once per frame
+    
 	void Update () {
-	
-	}
+        List<Shrine> test;
+        test = (GetShrinesByGod(gods[0]));
+
+        if (test.Count <= 0){
+       //you lose
+        }
+        test = (GetShrinesByGod(gods[0]));
+
+    }
 }
