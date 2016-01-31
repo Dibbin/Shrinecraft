@@ -31,8 +31,8 @@ public class GodController : MonoBehaviour {
     }
 	void setRandom()
     {
-        choice =  Random.Range(0,0);//set to length of dictionary
-        Invoke("setRandom", 2.0f);
+       // choice =  Random.Range(0,2);//set to length of dictionary
+       // Invoke("setRandom", 2.0f);
     }
     void runPower(int i)
     {
@@ -56,14 +56,22 @@ public class GodController : MonoBehaviour {
 
                 case 1:
                     thePower = godPowerDictionary["SummonShrine"];
-                    thePower.usePowerOnMap(randLoc, enemy);
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (terrain.GetComponent<Collider>().Raycast(ray, out hit, Mathf.Infinity))
+                   
+                
+                float x = Random.Range(182,1366);
+                float y = Random.Range(0,500);
+                float z = Random.Range(-1191, 70);
+                randLoc = new Vector3(x, -373, z);
+               
+                print(x);
+                if (enemy.energy >= thePower.getEnergyCost())
                 {
-                  
-                    thePower.usePowerOnMap(hit.point, playerGod);
-                    enemy.energy -= thePower.getEnergyCost();
+                    
+                    Vector3 place = new Vector3(x, -438, z);
+                    thePower.usePowerOnMap(randLoc, enemy);
+                    
+                        enemy.energy -= thePower.getEnergyCost();
+
 
                     
                 }
@@ -87,9 +95,9 @@ public class GodController : MonoBehaviour {
 	
 	void Update () {
 
-       
-        
+        choice = Random.Range(0, 2);//set to length of dictionary
 
 
-	}
+
+    }
 }
