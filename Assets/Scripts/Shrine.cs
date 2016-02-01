@@ -15,6 +15,7 @@ public class Shrine : MonoBehaviour {
     public ParticleSystem theBlood;
     public bool isBurning = false;
     public ShrineUpgrade su = null;
+    public GameObject lightning = null;
 
     public int maxFollowers
     {
@@ -76,14 +77,15 @@ public class Shrine : MonoBehaviour {
     public float delay = 2.0f;
     public void burner()   //controls the killing when fire attack is used. 
     {
-       
+
         if (isBurning == false)
         {
 
             theFire.Stop();
             firesound.Stop();
-
         }
+        nflashes = 3;
+        lightningFlashOn();
         theFire.Play();
         firesound.Play();
         Kill(2);
@@ -99,6 +101,33 @@ public class Shrine : MonoBehaviour {
             theFire.Stop();
             firesound.Stop();
         }
+    }
+
+    int nflashes = 0;
+    float ontime = 0.1f;
+    float offtime = 0.2f;
+    protected void lightningFlashOn()
+    {
+        if (nflashes == 0) return;
+        nflashes--;
+        lightningOn();
+        Invoke("lightningFlashOff", ontime);
+    }
+
+    protected void lightningFlashOff()
+    {
+        lightningOff();
+        Invoke("lightningFlashOn", offtime);
+    }
+
+    protected void lightningOn()
+    {
+        lightning.SetActive(true);
+    }
+
+    protected void lightningOff()
+    {
+        lightning.SetActive(false);
     }
 
     void OnMouseDown()
