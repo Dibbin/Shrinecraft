@@ -8,9 +8,13 @@ public class loadMainScene : MonoBehaviour {
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void exitGame()
+    {
+        Application.Quit();
+    }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
