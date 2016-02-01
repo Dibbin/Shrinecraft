@@ -104,8 +104,14 @@ public class GodController : MonoBehaviour {
                 sel = Random.Range(0, size-1);
                 if (enemy.energy >= thePower.getEnergyCost())
                 {
+                    try { 
                     thePower.usePowerOnShrine(shrines[sel], enemy);
                     enemy.energy -= thePower.getEnergyCost();
+                    }catch (System.Exception e)
+                    {
+                        //fix it later
+                    }
+
                 }
                 break;
                 default:
