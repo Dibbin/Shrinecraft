@@ -11,7 +11,7 @@ public class GodPowerFire :  GodPower
     public float delay;
     Vector3 shrineLoc;
     public  int cycles = 3;
-    public float energyCost = 30;
+    public float energyCost = 60;
 
     public float getEnergyCost()
     {
