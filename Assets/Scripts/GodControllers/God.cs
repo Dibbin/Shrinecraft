@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class God : MonoBehaviour {
     public Level level;
     public float energyPerFollowerPerSecond = 1.0f;
+    public Color tint = Color.white;
     public int followers
     {
         get

@@ -45,6 +45,17 @@ public class Shrine : MonoBehaviour {
         level = GameObject.Find("LevelManager").GetComponent<Level>();
         Invoke("ReproduceFollowers", reproductionRate);
         playerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInputManager>();
+        Renderer r = GetComponent<Renderer>();
+        if(r)
+        {
+            Material m = r.material;
+            m.color = god.tint;
+            r.material = m;
+        }
+        else
+        {
+            Debug.Log("SHITSHITSHIT");
+        }
     }
 
     public void Kill(int n)
